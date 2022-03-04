@@ -1,0 +1,915 @@
+@font-face {
+  font-family: "dancing";
+  src: url("./font/dancingscript-variablefont_wght-webfont.woff2") format("woff2"), url("./font/dancingscript-variablefont_wght-webfont.woff") format("woff");
+}
+
+.ch_img {
+  background-image: url("../image/3.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 65% 100%;
+}
+
+body {
+  background-image: url("../image/7.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 65% 100%;
+  width: calc(100vw-2px);
+}
+
+body header {
+  height: 100vh;
+}
+
+body header > div.header_bg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.666);
+}
+
+body header > div.header_bg > div.header_cap {
+  font-family: 'dancing';
+  font-weight: bold;
+  font-style: italic;
+  height: 24vw;
+  width: 100%;
+  padding-left: 10vw;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 6vh;
+  left: 10vw;
+}
+
+@media (min-height: 600px) {
+  body header > div.header_bg > div.header_cap {
+    top: 15vh;
+  }
+}
+
+@media (max-width: 700px) {
+  body header > div.header_bg > div.header_cap {
+    height: 150px;
+  }
+}
+
+body header > div.header_bg > div.header_cap h2 {
+  font-size: 8vw;
+  width: 50%;
+  min-width: 200px;
+  color: orange;
+}
+
+body header > div.header_bg > div.header_cap h2:nth-child(2) {
+  margin-left: 11vw;
+}
+
+body header > div.header_bg > div.header_cap h2:last-child {
+  margin-left: 12vw;
+}
+
+body header > div.header_bg > div.header_cap h2 > span.typeindex {
+  -webkit-animation-name: toggling;
+          animation-name: toggling;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes toggling {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes toggling {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  body header > div.header_bg > div.header_cap h2 {
+    font-size: 50px;
+  }
+}
+
+body header > div.header_bg > div.ch_position {
+  top: auto;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+body nav#navbar {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 20px 10px 10px;
+  background-color: rgba(0, 0, 0, 0.666);
+  z-index: 99;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body nav#navbar > div.logo {
+  color: white;
+  cursor: pointer;
+}
+
+body nav#navbar > ul {
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 700px) {
+  body nav#navbar > ul {
+    display: none;
+  }
+}
+
+body nav#navbar > ul li {
+  padding: 2px;
+}
+
+body nav#navbar > ul li a {
+  padding: 2px;
+  border: none;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+}
+
+body nav#navbar > ul li a::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border-top: 1.5px solid orange;
+  border-right: 1.5px solid orange;
+}
+
+body nav#navbar > ul li a:hover::before {
+  -webkit-animation-name: border_before;
+          animation-name: border_before;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-iteration-count: unset;
+          animation-iteration-count: unset;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+body nav#navbar > ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 1.5px solid orange;
+  border-left: 1.5px solid orange;
+}
+
+body nav#navbar > ul li a:hover::after {
+  -webkit-animation-name: border_after;
+          animation-name: border_after;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-iteration-count: unset;
+          animation-iteration-count: unset;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+@-webkit-keyframes border_before {
+  50% {
+    opacity: 1;
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes border_before {
+  50% {
+    opacity: 1;
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes border_after {
+  50% {
+    opacity: 1;
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes border_after {
+  50% {
+    opacity: 1;
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+body nav#navbar > div.toggle_menu {
+  color: white;
+  width: 5px;
+  height: 5px;
+  cursor: pointer;
+}
+
+@media (min-width: 700px) {
+  body nav#navbar > div.toggle_menu {
+    display: none;
+  }
+}
+
+body nav#navbar > div.toggle_menu i {
+  position: relative;
+  top: -6px;
+  left: -5px;
+}
+
+body > div.dropdown_menu {
+  width: 100%;
+  padding: 20px;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.808);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 40px;
+  z-index: 2;
+}
+
+body > div.dropdown_menu > ul {
+  margin: auto;
+  width: 80px;
+}
+
+body > div.dropdown_menu > ul li {
+  margin: 10px;
+  font-size: 18px;
+}
+
+body > div.dropdown_menu > ul li a {
+  text-decoration: none;
+  color: white;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+body > div.dropdown_menu > ul li a:hover {
+  color: orange;
+}
+
+body main {
+  background-color: rgba(255, 255, 255, 0.788);
+  height: auto;
+}
+
+body main > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 50px;
+}
+
+body main > div > h2.heading_h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+  color: orange;
+  font-family: 'dancing';
+}
+
+body main > div.bio > div.bio_modelbox {
+  width: 90%;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(255, 255, 255, 0.822);
+}
+
+@media (max-width: 700px) {
+  body main > div.bio > div.bio_modelbox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+body main > div.bio > div.bio_modelbox > div:first-child {
+  width: 45%;
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 700px) {
+  body main > div.bio > div.bio_modelbox > div:first-child {
+    width: 90%;
+  }
+}
+
+body main > div.bio > div.bio_modelbox > div:first-child img {
+  max-width: 300px;
+  width: 100%;
+  position: relative;
+  left: -300px;
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+body main > div.bio > div.bio_modelbox > div:first-child img.bio_img_on {
+  left: 0;
+  opacity: 1;
+}
+
+body main > div.bio > div.bio_modelbox > div:first-child img.bio_img_off {
+  left: -300px;
+  opacity: 0;
+}
+
+body main > div.bio > div.bio_modelbox > div:first-child img:hover {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+body main > div.bio > div.bio_modelbox > div:last-child {
+  width: 45%;
+}
+
+@media (max-width: 700px) {
+  body main > div.bio > div.bio_modelbox > div:last-child {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 90%;
+  }
+}
+
+body main > div.bio > div.bio_modelbox > div:last-child p {
+  font-size: 20px;
+}
+
+body main > div.photo {
+  overflow: hidden;
+}
+
+body main > div.photo > div.photo_gallary {
+  width: 90%;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body main > div.photo > div.photo_gallary > div {
+  background-color: #573617;
+  margin: 10px;
+  min-width: 200px;
+  max-width: 300px;
+  padding: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main > div.photo > div.photo_gallary > div img {
+  width: 100%;
+  opacity: 0;
+  -webkit-transform: scale(3, 3);
+          transform: scale(3, 3);
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+  position: relative;
+  -webkit-transform: scale(2, 2);
+          transform: scale(2, 2);
+}
+
+body main > div.photo > div.photo_gallary > div img:hover {
+  -webkit-transform: scale(2, 2);
+          transform: scale(2, 2);
+}
+
+body main > div.photo > div.photo_gallary > div img.photo_origin {
+  opacity: 0;
+  -webkit-transform: scale(3, 3);
+          transform: scale(3, 3);
+}
+
+body main > div.photo > div.photo_gallary > div img.photo_animation {
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+body main > div.events > div.event_list {
+  background-color: rgba(255, 255, 255, 0.699);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 90%;
+  min-width: 300px;
+  max-width: 800px;
+  height: auto;
+  padding: 20px;
+}
+
+body main > div.events > div.event_list > div {
+  margin: 10px;
+}
+
+body main > div.events > div.event_list > div.event_list_schedule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 60%;
+}
+
+body main > div.events > div.event_list > div.event_list_schedule > div {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 10px;
+  padding: 10px;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+}
+
+body main > div.events > div.event_list > div.event_list_schedule > div h2 {
+  margin-bottom: 5px;
+}
+
+body main > div.events > div.event_list > div.event_list_schedule > div:hover {
+  -webkit-box-shadow: 0px 0px 5px orange;
+          box-shadow: 0px 0px 5px orange;
+}
+
+body main > div.events > div.event_list > div.event_list_schedule > div.event_origin {
+  opacity: 0;
+  left: -200px;
+}
+
+body main > div.events > div.event_list > div.event_list_schedule > div.event_animation {
+  opacity: 1;
+  left: 0;
+}
+
+@media (max-width: 600px) {
+  body main > div.events > div.event_list > div.event_list_schedule {
+    width: 100%;
+  }
+}
+
+body main > div.events > div.event_list > div.event_list_img.event_list_img {
+  width: 40%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60px;
+}
+
+body main > div.events > div.event_list > div.event_list_img.event_list_img img {
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.521);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.521);
+}
+
+@media (max-width: 600px) {
+  body main > div.events > div.event_list > div.event_list_img.event_list_img {
+    display: none;
+  }
+}
+
+body main > div.events > div.event_list > div.event_list_img img {
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.521);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.521);
+}
+
+@media (max-width: 600px) {
+  body main > div.events > div.event_list > div.event_list_img {
+    display: none;
+  }
+}
+
+body main > div.contact {
+  overflow: hidden;
+}
+
+body main > div.contact > div.contacts {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 800px) {
+  body main > div.contact > div.contacts {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+body main > div.contact > div.contacts > div {
+  padding: 10px;
+  margin: 5px;
+}
+
+body main > div.contact > div.contacts > div.contact_info {
+  background-color: rgba(255, 255, 255, 0.808);
+  width: 50%;
+}
+
+body main > div.contact > div.contacts > div.contact_info * {
+  margin: 10px 0;
+}
+
+@media (max-width: 800px) {
+  body main > div.contact > div.contacts > div.contact_info {
+    width: 80%;
+    min-width: 300px;
+  }
+}
+
+body main > div.contact > div.contacts > div.contact_form {
+  width: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main > div.contact > div.contacts > div.contact_form form {
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.808);
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+body main > div.contact > div.contacts > div.contact_form form > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: relative;
+  padding: 10px;
+  width: 100%;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+}
+
+body main > div.contact > div.contacts > div.contact_form form > div * {
+  margin: 5px;
+}
+
+body main > div.contact > div.contacts > div.contact_form form > div input {
+  padding: 5px;
+  width: 200px;
+  outline: none;
+  border: 1px solid orange;
+}
+
+body main > div.contact > div.contacts > div.contact_form form > div input:focus {
+  border: 2px solid orange;
+}
+
+body main > div.contact > div.contacts > div.contact_form form > div textarea {
+  width: 250px;
+  height: 150px;
+  border: 1px solid orange;
+  outline: none;
+}
+
+body main > div.contact > div.contacts > div.contact_form form > div textarea:focus {
+  border: 2px solid orange;
+}
+
+body main > div.contact > div.contacts > div.contact_form form > div.contact_origin {
+  left: 200px;
+  opacity: 0;
+}
+
+body main > div.contact > div.contacts > div.contact_form form > div.contact_animation {
+  left: 0;
+  opacity: 1;
+}
+
+body main > div.contact > div.contacts > div.contact_form form > button {
+  width: 80px;
+  height: 30px;
+  outline: none;
+  border: none;
+  margin-right: 15px;
+  position: relative;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+  cursor: pointer;
+}
+
+body main > div.contact > div.contacts > div.contact_form form > button::before {
+  content: "Submit";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  opacity: 1;
+  z-index: 10;
+  padding: 5px 20px;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  background-color: #e7a232;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+body main > div.contact > div.contacts > div.contact_form form > button::after {
+  content: "Submit";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  opacity: 0;
+  z-index: 10;
+  padding: 5px 20px;
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  border-top: 2px solid #e7a232;
+  border-bottom: 2px solid #e7a232;
+  background-color: rgba(231, 162, 50, 0.658);
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+}
+
+body main > div.contact > div.contacts > div.contact_form form > button:hover::after {
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+body main > div.contact > div.contacts > div.contact_form form > button:hover::before {
+  opacity: 0;
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+}
+
+body footer {
+  padding: 30px;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.705);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body footer > div {
+  width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body footer > div span i {
+  font-size: 20px;
+  color: rgba(255, 166, 0, 0.678);
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+body footer > div span i:hover {
+  color: #ffa600;
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+/*# sourceMappingURL=index.css.map */

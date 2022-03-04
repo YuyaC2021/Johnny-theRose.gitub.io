@@ -1,0 +1,515 @@
+
+@mixin flexing($direct:row,$justify:center,$align:center){
+    display: flex;
+    flex-direction: $direct;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin bg_img($url,$size:cover,$attachment:scroll,$position:center){
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: $size;
+    background-attachment: $attachment;
+    background-position: $position;
+}
+@mixin customfont($fontname,$woff2url,$woffurl){
+    font-family: $fontname;
+    src:url($woff2url) format('woff2'),
+    url($woffurl) format('woff');
+}
+
+@font-face {
+    @include customfont("dancing","./font/dancingscript-variablefont_wght-webfont.woff2","./font/dancingscript-variablefont_wght-webfont.woff");
+}
+
+
+.ch_img{
+    @include bg_img($url:"../image/3.jpeg",$attachment:fixed,$position:65% 100%);
+}
+
+body{
+    @include bg_img($url:"../image/7.jpeg",$attachment:fixed,$position:65% 100%);
+    width: calc(100vw-2px);
+    header{
+        height: 100vh;
+        &>div.header_bg{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.666);
+            &>div.header_cap{
+                font-family: 'dancing';
+                font-weight: bold;
+                font-style: italic;
+                height: 24vw;
+                width: 100%;
+                padding-left:10vw;
+                position: sticky;
+                top: 6vh;
+                left: 10vw;
+                @media (min-height:600px){
+                    top: 15vh;
+                }
+                @media (max-width:700px){
+                    height: 150px;
+                }
+                h2{
+                    font-size: 8vw;
+                    width: 50%;
+                    min-width: 200px;
+                    color: orange;
+                    &:nth-child(2){
+                        margin-left: 11vw;
+                    }
+                    &:last-child{
+                        margin-left: 12vw;
+                    }
+                    &>span.typeindex{
+                        animation-name: toggling;
+                        animation-duration: 1s;
+                        animation-iteration-count: infinite;
+                    }
+                    @keyframes toggling {
+                        50%{
+                            opacity: 0;
+                        }
+                    }
+
+                    @media (max-width:700px){
+                        font-size: 50px;
+                    }
+                }
+            }
+            &>div.ch_position{
+                top: auto;
+                bottom: 0;
+                left: 0;
+                position: absolute;
+            }
+        }
+    }
+
+    nav#navbar{
+        position: sticky !important;
+        top:0;
+        left: 0;
+        width: 100%;
+        padding: 20px 20px 10px 10px;
+        background-color: rgba(0, 0, 0, 0.666);
+        z-index: 99;
+        @include flexing($justify:space-between);
+        &>div.logo{
+            color: white;
+            cursor: pointer;
+        }
+        &>ul{
+            width: 300px;
+            @include flexing($justify:space-between);
+            @media(max-width:700px){
+                display: none;
+            }
+            li{
+                padding: 2px;
+                a{
+                    padding: 2px;
+                    border: none;
+                    text-decoration: none;
+                    color: white;
+                    position: relative;
+                    transition: 1s all;
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        top: -1px;
+                        left: -1px;
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+                        border-top: 1.5px solid orange;
+                        border-right: 1.5px solid orange;
+                    }
+                    &:hover::before{
+                        animation-name: border_before;
+                        animation-duration: 0.3s;
+                        animation-fill-mode: forwards;
+                        animation-direction: normal;
+                        animation-iteration-count: unset;
+                        animation-play-state: running;
+                    }
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        bottom: -1px;
+                        right: -1px;
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+                        border-bottom: 1.5px solid orange;
+                        border-left: 1.5px solid orange;
+                    }
+                    &:hover::after{
+                        animation-name: border_after;
+                        animation-duration: 0.3s;
+                        animation-fill-mode: forwards;
+                        animation-direction: normal;
+                        animation-iteration-count: unset;
+                        animation-play-state: running;
+                    }
+                    @keyframes border_before {
+                        50%{opacity: 1;width: 100%;height: 0;}
+                        100%{height: 100%;width: 100%;opacity: 1;}
+                    }
+                    @keyframes border_after {
+                        50%{opacity: 1;width: 100%;height: 0;}
+                        100%{height: 100%;width: 100%;opacity: 1;}
+                    }
+                }
+            }
+        }
+        &>div.toggle_menu{
+            color: white;
+            width: 5px;
+            height: 5px;
+            cursor: pointer;
+            @media(min-width:700px){
+                display: none;
+            }
+            
+            i{
+                position: relative;
+                top: -6px;
+                left: -5px;
+            }
+        }
+    }
+
+    &>div.dropdown_menu{
+        width: 100%;
+        padding: 20px;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.808);
+        position: sticky;
+        top: 40px;
+        z-index: 2;
+        &>ul{
+            margin: auto;
+            width: 80px;
+            li{
+                margin: 10px;
+                font-size: 18px;
+                a{
+                    text-decoration: none;
+                    color: white;
+                    transition: 0.3s all;
+                    &:hover{
+                        color: orange;
+                    }
+                }
+            }
+        }
+    }
+
+    main{
+        background-color: rgba(255, 255, 255, 0.788);
+        height: auto;
+        &>div{
+            @include flexing($direct:column);
+            width: 100%;
+            padding: 50px;
+            &>h2.heading_h2{
+                font-size: 40px;
+                margin-bottom: 30px;
+                color: orange;
+                font-family: 'dancing';
+            }
+            &.bio{
+                &>div.bio_modelbox{
+                    width: 90%;
+                    padding: 20px;
+                    @include flexing;
+                    background-color: rgba(255, 255, 255, 0.822);
+                    @media (max-width:700px) {
+                        @include flexing($direct:column);
+                    }
+                    &>div:first-child{
+                        width: 45%;
+                        margin:20px;
+                        @include flexing;
+                        @media (max-width:700px) {
+                            width: 90%;
+                        }
+                        img{
+                            max-width: 300px;
+                            width: 100%;
+                            position: relative;
+                            left:-300px;
+                            opacity: 0;
+                            transition: all 1s;
+                            &.bio_img_on{
+                                left:0;
+                                opacity: 1;
+                            }
+                            &.bio_img_off{
+                                left:-300px;
+                                opacity: 0;
+                            }
+                            &:hover{
+                                transform: scale(1.2,1.2);
+                            }
+                        }
+                    }
+                    &>div:last-child{
+                        width: 45%;
+                        @media (max-width:700px) {
+                            @include flexing($direct:column);
+                            width: 90%;
+                        }   
+                        p{
+                            font-size: 20px;
+                        }                 
+                    }
+                }
+            }
+
+            &.photo{
+                overflow: hidden;
+                &>div.photo_gallary{
+                    width: 90%;
+                    padding: 20px;
+                    @include flexing($justify:space-evenly);
+                    flex-wrap:wrap;
+                    &>div{
+                        background-color: rgb(87, 54, 23);
+                        margin: 10px;
+                        min-width: 200px;
+                        max-width: 300px;
+                        padding: 7px;
+                        @include flexing;
+                        img{
+                            width: 100%;
+                            opacity: 0;
+                            transform: scale(3,3);
+                            transition:0.5s all;
+                            position: relative;
+                            &:hover{
+                                transform: scale(2,2);
+                            }
+                            transform: scale(2,2);
+                            &.photo_origin{
+                                opacity: 0;
+                                transform: scale(3,3);
+                            }
+                            &.photo_animation{
+                                opacity: 1;
+                                transform: scale(1,1);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.events{
+                &>div.event_list{
+                    background-color: rgba(255, 255, 255, 0.699);
+                    @include flexing($justify:space-evenly,$align:flex-start);
+                    width: 90%;
+                    min-width: 300px;
+                    max-width: 800px;
+                    height: auto;
+                    padding: 20px;
+                    &>div{
+                        margin: 10px;
+                        &.event_list_schedule{
+                            @include flexing($direct:column-reverse,$align:flex-start);
+                            width: 60%;
+                            &>div{
+                                position: relative;
+                                width: 100%;
+                                max-width: 400px;
+                                margin-bottom: 10px;
+                                padding: 10px;
+                                transition: 0.5s all;
+                                h2{
+                                    margin-bottom: 5px;
+                                }
+                                &:hover{
+                                    box-shadow: 0px 0px 5px orange;
+                                }
+                                &.event_origin{
+                                    opacity: 0;
+                                    left: -200px;
+                                }
+                                &.event_animation{
+                                    opacity: 1;
+                                    left: 0;
+                                }
+                            }
+                            @media (max-width:600px){
+                                width: 100%;
+                            }
+                        }
+                        &.event_list_img{
+                            &.event_list_img{
+                                width: 40%;
+                                position: sticky;
+                                top: 60px;
+                                img{
+                                    width: 100%;
+                                    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.521);
+                                }
+                                @media (max-width:600px){
+                                    display:none
+                                }
+                            }
+                            img{
+                                width: 100%;
+                                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.521);
+                            }
+                            @media (max-width:600px){
+                                display:none
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.contact{
+                overflow: hidden;
+                &>div.contacts{
+                    width: 90%;
+                    @include flexing;
+                    @media (max-width:800px){
+                        @include flexing($direct:column);
+                    }
+                    &>div{
+                        padding: 10px;
+                        margin: 5px;
+                        &.contact_info{
+                            background-color: rgba(255, 255, 255, 0.808);
+                            width: 50%;
+                            *{
+                                margin: 10px 0;
+                            }
+                            @media (max-width:800px){
+                                width: 80%;     
+                                min-width: 300px;
+                            }
+                        }
+                        &.contact_form{
+                            width: 350px;
+                            @include flexing;
+                            form{
+                                width: 300px;
+                                background-color: rgba(255, 255, 255, 0.808);
+                                padding: 10px;
+                                @include flexing($direct:column,$align:flex-end);
+                                &>div{
+                                    @include flexing($direct:column,$align:flex-start);
+                                    position: relative;
+                                    padding: 10px;
+                                    width: 100%;
+                                    transition: 0.5s all;
+                                    *{
+                                        margin: 5px;
+                                    }
+                                    input{
+                                        padding: 5px;
+                                        width: 200px;
+                                        outline: none;
+                                        border: 1px solid orange;
+                                        &:focus{
+                                            border: 2px solid orange;
+                                        }
+                                    }
+                                    textarea{
+                                        width: 250px;
+                                        height: 150px;
+                                        border: 1px solid orange;
+                                        outline: none;
+                                        &:focus{
+                                            border: 2px solid orange;
+                                        }
+                                    }
+                                    &.contact_origin{
+                                        left: 200px;
+                                        opacity: 0;
+                                    }
+                                    &.contact_animation{
+                                        left: 0;
+                                        opacity: 1;
+                                    }
+                                }
+                                &>button{
+                                    width: 80px;
+                                    height: 30px;
+                                    outline: none;
+                                    border: none;
+                                    margin-right: 15px;
+                                    position: relative;
+                                    transition: 1s all;
+                                    cursor: pointer;
+                                    &::before{
+                                        content: "Submit";
+                                        position: absolute;
+                                        top: -1px;
+                                        left: 0;
+                                        opacity: 1;
+                                        z-index: 10;
+                                        padding: 5px 20px;
+                                        border-top: 2px solid transparent;
+                                        border-bottom: 2px solid transparent;
+                                        background-color: rgb(231, 162, 50);
+                                        transition: 0.2s all;
+                                    }
+                                    &::after{
+                                        content: "Submit";
+                                        position: absolute;
+                                        top: -1px;
+                                        left: 0;
+                                        opacity: 0;
+                                        z-index: 10;
+                                        padding: 5px 20px;
+                                        transform: scale(0,1);
+                                        border-top: 2px solid rgb(231, 162, 50);
+                                        border-bottom: 2px solid rgb(231, 162, 50);
+                                        background-color: rgba(231, 162, 50, 0.658);
+                                        transition: 0.5s all;
+                                    }
+                                    &:hover::after{
+                                        opacity: 1;
+                                        transform: scale(1,1);
+                                    }
+                                    &:hover::before{
+                                        opacity: 0;
+                                        transform: scale(0,1);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    footer{
+        padding: 30px;
+        height: auto;
+        background-color: rgba(0, 0, 0, 0.705);
+        @include flexing($justify:space-evenly);
+        flex-wrap: wrap;
+        &>div{
+            width: 150px;
+            @include flexing($justify:space-between);
+            span{
+                i{
+                    font-size:20px;
+                    color: rgba(255, 166, 0, 0.678);
+                    transform: scale(1.0,1.0);
+                    &:hover{
+                        color: rgb(255, 166, 0);
+                        transform: scale(1.2,1.2);
+                    }
+                }
+            }
+        }
+    }
+}
